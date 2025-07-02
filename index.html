@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vintage Cartoon Prompt Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    pre {
+      background-color: #e9e9e9;
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vintage Cartoon Prompt Generator</h1>
+
+  <label for="object">Character Object</label>
+  <input type="text" id="object" placeholder="e.g., stack of money, coffee cup, coin" />
+
+  <label for="emotion">Emotion</label>
+  <input type="text" id="emotion" placeholder="e.g., cheerful, excited, angry" />
+
+  <label for="action">Action / Pose</label>
+  <input type="text" id="action" placeholder="e.g., walking, dancing, jumping" />
+
+  <label for="extras">Accessories (e.g. gloves, shoes)</label>
+  <input type="text" id="extras" placeholder="e.g., gloves, white shoes" />
+
+  <label for="handItem">Hand Item (Optional)</label>
+  <input type="text" id="handItem" placeholder="e.g., soda can, briefcase, umbrella" />
+
+  <label for="background">Background</label>
+  <input type="text" id="background" placeholder="e.g., flat pink background" />
+
+  <button onclick="generatePrompt()">Generate Prompt</button>
+
+  <h2>Generated Prompt:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    function generatePrompt() {
+      const object = document.getElementById("object").value;
+      const emotion = document.getElementById("emotion").value;
+      const action = document.getElementById("action").value;
+      const extras = document.getElementById("extras").value;
+      const handItem = document.getElementById("handItem").value;
+      const background = document.getElementById("background").value;
+
+      let handItemText = handItem ? ` One hand is holding a ${handItem}.` : "";
+
+      const prompt = `Vintage cartoon-style illustration of a ${object} with arms, legs, and a ${emotion} face, ${action}. Designed in the 1930s animation style with bold outlines, minimal shading, and flat colors, The character features rubber hose limbs, ${extras}, and an expressive classic cartoon face.${handItemText} The pose is dynamic and playful. Render on a ${background}.`;
+
+      document.getElementById("output").textContent = prompt;
+    }
+  </script>
+</body>
+</html>
